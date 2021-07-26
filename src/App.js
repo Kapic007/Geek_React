@@ -19,11 +19,12 @@ function App() {
 
   useEffect(() => {
     if(messageList.length && messageList[messageList.length - 1]?.author !== "bot") {
-      setTimeout(() => {
+      const botTimer = setTimeout(() => {
         setMessageList([...messageList, botMessage])
       }, 1500);
+      return () => clearTimeout(botTimer);
     }
-  });
+  }, [messageList]);
 
   return (
     <div className="App">

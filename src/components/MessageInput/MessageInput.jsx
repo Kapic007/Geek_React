@@ -5,7 +5,9 @@ import "./messageInput.css";
 const MessageInput = ({ sendMessage }) => {
   const [messageText, setMessageText] = useState("");
 
-  const addMessage = () => {
+  const addMessage = (e) => {
+    e.preventDefault();
+    
     if(messageText) {
       const message = {
         id: uuidv4(),
@@ -18,15 +20,14 @@ const MessageInput = ({ sendMessage }) => {
   }
 
   return (
-    <div className="message-input" >
+    <form className="message-input" onSubmit={addMessage}>
         <input type="text"
           className="message-input-text"
           placeholder="Enter your message"
           value={messageText}
           onChange={e => setMessageText(e.target.value)} />
-        <button className="message-input-button" onClick={addMessage}
-          type="button">Send</button>
-    </div>
+        <button className="message-input-button" type="submit">Send</button>
+    </form>
   )
 }
 
