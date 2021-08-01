@@ -1,11 +1,11 @@
-.App {
-  /* max-width: 1200px;
+.home {
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
-  display: flex; */
+  display: flex;
 }
-/* .main-container {
+.main-container {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-} */
+}
