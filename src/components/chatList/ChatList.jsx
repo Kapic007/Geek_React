@@ -4,7 +4,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import "./chatList.css"
+import "./chatList.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,13 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChatList = ({chats, selectChat}) => {
+const ChatList = ({chats}) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
-    selectChat(index);
   };
 
   return (
@@ -30,15 +30,15 @@ const ChatList = ({chats, selectChat}) => {
       <Divider />
       <List component="nav" aria-label="chat's">
         {Object.values(chats).map(chat => {
-          return (<ListItem
-                    key={chat.id}
-                    button
-                    selected={selectedIndex === chat.id}
-                    onClick={(event) => handleListItemClick(event, chat.id)}
-                  >
-                    <ListItemText primary={chat.name} />
-                  </ListItem>)
-          
+          return (<Link to={`/home/${chat.id}`} key={chat.id}>
+                    <ListItem
+                      button
+                      selected={selectedIndex === chat.id}
+                      onClick={(event) => handleListItemClick(event, chat.id)}
+                    >
+                      <ListItemText primary={chat.name} />
+                    </ListItem>
+                  </Link>)
         })}
       </List>
     </div>
