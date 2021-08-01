@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
 
 export const Home = () => {
   const classes = useStyles();
-  const [chatList, setChatList] = useState([]);
+  const [ chatList, setChatList ] = useState({});
   const [ messageList, setMessageList ] = useState([]);
+  const [ currentChat, setCurrentChat ] = useState(null)
   const botMessage = {
     ...mockBotMessage(),
     id: uuidv4(),
@@ -37,10 +38,18 @@ export const Home = () => {
 
   const sendMessage = (message) => {
     setMessageList([...messageList, message]);
+    setChatList({...chatList, [currentChat]: {
+      ...chatList[currentChat],
+      messages: [...messageList, message]}})
+  }
+
+  const choseChat = (chatId) => {
+    setCurrentChat(chatId);
+    setMessageList(chatList[chatId].messages);
   }
 
   useEffect(() => {
-    setChatList([...mockChatList])
+    setChatList(mockChatList)
   }, []);
 
   useEffect(() => {
@@ -62,7 +71,7 @@ export const Home = () => {
       </Button></Link>
       <Switch>
         <Route path="/chat" exact>
-          <ChatList chats={chatList}/>
+          <ChatList chats={chatList} selectChat={choseChat}/>
           <div className="main-container">
             <MessageList messages={messageList} />
             <MessageInput sendMessage={sendMessage} />

@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChatList = ({chats}) => {
+const ChatList = ({chats, selectChat}) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
+    selectChat(index);
   };
 
   return (
@@ -28,7 +29,7 @@ const ChatList = ({chats}) => {
       <div className="chat-list-title">Chat List</div>
       <Divider />
       <List component="nav" aria-label="chat's">
-        {chats.map(chat => {
+        {Object.values(chats).map(chat => {
           return (<ListItem
                     key={chat.id}
                     button

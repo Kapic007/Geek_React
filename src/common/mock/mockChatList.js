@@ -1,36 +1,44 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const mockChatList = [
-  {
-    id: uuidv4(),
-    name: "sport"
+export const mockChatList = {
+  "chat1": {
+    id: "chat1",
+    name: "sport",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "politic"
+  "chat2": {
+    id: "chat2",
+    name: "politic",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "travel"
+  "chat3": {
+    id: "chat3",
+    name: "travel",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "economy"
+  "chat4": {
+    id: "chat4",
+    name: "economy",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "history"
+  "chat5": {
+    id: "chat5",
+    name: "history",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "family"
+  "chat6": {
+    id: "chat6",
+    name: "family",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "bussines"
+  "chat7": {
+    id: "chat7",
+    name: "business",
+    messages: []
   },
-  {
-    id: uuidv4(),
-    name: "questions"
+  "chat8": {
+    id: "chat8",
+    name: "questions",
+    messages: []
   }
-]
+}
