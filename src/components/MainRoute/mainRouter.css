@@ -1,0 +1,9 @@
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+}
+.home-logo {
+  flex: 1 0 auto;
+  width: 100%;
+  height: auto;
+}
