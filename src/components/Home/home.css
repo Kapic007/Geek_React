@@ -1,0 +1,12 @@
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 58px);
+  display: flex;
+  flex: 1 0 auto;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
