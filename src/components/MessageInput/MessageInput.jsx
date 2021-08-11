@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { TextField, Button } from '@material-ui/core';
 import "./messageInput.css";
+import { useRef } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { sendMessageToBot } from "../../store/messages/actions";
 
-const MessageInput = ({ sendMessage }) => {
+
+const MessageInput = ({ chatId }) => {
+  const dispatch = useDispatch();
   const [messageText, setMessageText] = useState("");
+  const valueRef = useRef(null);
+
+  useEffect(() => {
+    valueRef.current?.focus();
+  });
 
   const addMessage = (e) => {
     e.preventDefault();
@@ -14,19 +26,27 @@ const MessageInput = ({ sendMessage }) => {
         author: "Admin",
         text: messageText,
       };
-      sendMessage(message);
-      setMessageText("");
+      dispatch(sendMessageToBot(chatId, message));
+      setMessageText('');
     }
   }
 
   return (
     <form className="message-input" onSubmit={addMessage}>
-        <input type="text"
-          className="message-input-text"
+        <TextField type="text" inputRef={valueRef}
+          multiline={true}
+          fullWidth={true}
+          autoFocus={true}
           placeholder="Enter your message"
           value={messageText}
           onChange={e => setMessageText(e.target.value)} />
-        <button className="message-input-button" type="submit">Send</button>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ marginLeft: 30 }}
+          type="submit">
+            Send
+        </Button>
     </form>
   )
 }
