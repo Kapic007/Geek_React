@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {profileActions} from '../../store/actions'
 
 export const Profile = () => {
-  const toggle = useSelector((state) => state.profile)
+  const toggle = useSelector((state) => state.profile);
   const dispatch = useDispatch();
 
   const changeAvatar = () => {

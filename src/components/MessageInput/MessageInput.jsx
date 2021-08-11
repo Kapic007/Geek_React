@@ -4,10 +4,12 @@ import { TextField, Button } from '@material-ui/core';
 import "./messageInput.css";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { sendMessage } from "../../store/messages/actions";
 
 
-const MessageInput = ({ sendMessage }) => {
-
+const MessageInput = ({ chatId }) => {
+  const dispatch = useDispatch();
   const [messageText, setMessageText] = useState("");
   const valueRef = useRef(null);
 
@@ -24,7 +26,7 @@ const MessageInput = ({ sendMessage }) => {
         author: "Admin",
         text: messageText,
       };
-      sendMessage(message);
+      dispatch(sendMessage(chatId, message));
       setMessageText("");
     }
   }
