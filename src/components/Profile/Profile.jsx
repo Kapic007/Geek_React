@@ -12,9 +12,6 @@ export const Profile = () => {
     dispatch(profileActions(!toggle));
   }
 
-
-
-
   return (
     <div className="profile">
       {toggle

@@ -20,10 +20,10 @@ export const Home = () => {
       )}
       {!chatList[chatId] && (
         <img
-          src="https://storage.kun.uz/source/7/ZUg5Rc8dCGrq-xoaDq_2PMGZyzY6cfve.jpg"
+          src="https://ak.picdn.net/shutterstock/videos/1015265554/thumb/10.jpg"
           alt="404"
-          width="50%"
-          height="50%"
+          width="70%"
+          height="70%"
         ></img>
       )}
     </div>

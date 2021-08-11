@@ -5,7 +5,7 @@ import "./messageInput.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { sendMessage } from "../../store/messages/actions";
+import { sendMessageToBot } from "../../store/messages/actions";
 
 
 const MessageInput = ({ chatId }) => {
@@ -26,8 +26,8 @@ const MessageInput = ({ chatId }) => {
         author: "Admin",
         text: messageText,
       };
-      dispatch(sendMessage(chatId, message));
-      setMessageText("");
+      dispatch(sendMessageToBot(chatId, message));
+      setMessageText('');
     }
   }
 
