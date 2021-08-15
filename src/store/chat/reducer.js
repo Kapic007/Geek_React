@@ -8,12 +8,14 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHAT_ADD: {
       const id = uuidv4();
-      state[id] = {
-        id: id,
+      const newState = {
+        ...state,
+        [id]: {
+          id: id,
         name: action.payload,
+        }
       };
-      state = {...state};
-      return state;
+      return newState;
     }
     case CHAT_DELETE: {
       const id = action.payload;

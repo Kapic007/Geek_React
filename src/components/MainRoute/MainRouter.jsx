@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Home from '../Home/Home';
 import './mainRouter.css'
+import Movies from '../Movie/Movies';
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -31,11 +32,17 @@ export const MainRouter = () => {
             Profile
           </Button>
         </Link>
+        <Link to="/movies">
+          <Button variant="contained" size="large" color="primary" className={classes.margin}>
+            Movies
+          </Button>
+        </Link>
       </div>
 
       <Switch>
         <Route path="/profile" exact><Profile /></Route>
         <Route path="/home/:chatId?"><Home /></Route>
+        <Route path="/movies"><Movies /></Route>
         <Route path="/" exact>
           <img className="home-logo" src="https://cisoclub.ru/wp-content/uploads/welcomechat.png.webp" alt="logo"></img>
         </Route>
