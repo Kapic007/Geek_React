@@ -1,13 +1,22 @@
 import MessageList from "../MessageList/MessageList";
+import { useEffect } from "react";
 import MessageInput from "../MessageInput/MessageInput";
 import ChatList from "../chatList/ChatList";
 import "./home.css";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { connectChatsToFB } from "../../store/chat/actions";
+import { connectMessagesToFB } from "../../store/messages/actions";
 
 export const Home = () => {
+  const dispatch = useDispatch();
   const { chatId } = useParams();
-  const chatList = useSelector((state) => state.chats);
+  const chatList = useSelector((state) => state.chats.chats);
+
+  useEffect(() => {
+    dispatch(connectChatsToFB());
+    dispatch(connectMessagesToFB());
+  }, []);
 
   return (
     <div className="home">

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from "./store/store";
 import { PersistGate } from 'redux-persist/integration/react';
 import { CircularProgress } from '@material-ui/core';
+// import Login from './components/Login/Login';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={<CircularProgress />}>
           <MainRouter />
+          {/* <Login /> */}
         </PersistGate>
       </Provider>
     </div>
