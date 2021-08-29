@@ -1,22 +1,22 @@
 import { REQUEST_PENDING, REQUEST_SUCCESS, REQUEST_ERROR, MAP_MOVIE_DATA } from "./actionTypes";
 import { MOVIE_API_URL, POPULAR_MOVIE, MOVIE_API_KEY } from "../../common/constants";
 
-const getMoviesPending = () => ({
+export const getMoviesPending = () => ({
   type: REQUEST_PENDING,
 });
 
-const getMoviesSuccess = (moviesData) => ({
+export const getMoviesSuccess = (moviesData) => ({
   type: REQUEST_SUCCESS,
   payload: moviesData,
 });
 
-const getMoviesError = (error) => ({
+export const getMoviesError = (error) => ({
   type: REQUEST_ERROR,
   payload: error,
 });
 
 
-const mapMoviesData = (moviesData) => ({
+export const mapMoviesData = (moviesData) => ({
   type: MAP_MOVIE_DATA,
   payload: moviesData,
 })

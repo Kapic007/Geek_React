@@ -14,7 +14,7 @@ import Fade from "@material-ui/core/Fade";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addChat, deleteChat } from "../../store/chat/actions";
+import { addChat, deleteChatWithFB } from "../../store/chat/actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,7 +67,7 @@ const ChatList = ({chats}) => {
   };
 
   const delChat = (id) => {
-    dispatch(deleteChat(id));
+    dispatch(deleteChatWithFB(id));
   };
 
   return (
