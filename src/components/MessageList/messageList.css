@@ -1,7 +1,7 @@
 .message-list {
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px -58px);
   overflow-y: auto;
   background-color: aliceblue;
   flex: 1 0 auto;

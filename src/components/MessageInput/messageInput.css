@@ -4,7 +4,7 @@
   background-color: silver;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 15px 200px;
   flex: 0 0 auto;
   box-sizing: border-box;
 }
